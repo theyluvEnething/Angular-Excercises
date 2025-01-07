@@ -1,10 +1,12 @@
 <h3>Autos</h3>
 <div *ngIf="cars.length > 0; else noCars">
+  <h2>Autos</h2>
+
   <mat-form-field appearance="outline" class="filter-field">
     <mat-label>Immatrikulationsjahr</mat-label>
     <input
       matInput
-      type="number" 
+      type="number"
       [(ngModel)]="yearToFilterBy"
       (ngModelChange)="filterCars()"
       placeholder="Immatrikulationsjahr"
@@ -12,15 +14,20 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 
-  <mat-list>
-    <mat-list-item *ngFor="let car of filteredCars">
-      <img class="avatar" matListAvatar *ngIf="(car.imagelink) ? true : false" [src]="car.imagelink" alt="{{ car.description }}" />
-      <div mat-line>{{ car.description }}</div>
-      <div mat-line class="secondary">{{ car.licenseplate }}, {{ car.registrationyear }}</div>
+  <mat-list class="car-list">
+    <mat-list-item *ngFor="let car of filteredCars" class="car-item">
+      <div class="horizontal-container">
+        <img matListAvatar [src]="car.imagelink" alt="{{ car.description }}" class="car-image" />
+        <div class="car-details">
+          <div class="car-description">{{ car.description }}</div>
+          <div class="car-secondary">{{ car.licenseplate }}, {{ car.registrationyear }}</div>
+        </div>
+      </div>
     </mat-list-item>
   </mat-list>
 </div>
 
+<!-- No Cars Fallback -->
 <ng-template #noCars>
   <p>Keine Autos vorhanden</p>
 </ng-template>

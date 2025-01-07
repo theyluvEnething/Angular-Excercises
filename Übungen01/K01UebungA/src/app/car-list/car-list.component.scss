@@ -1,32 +1,51 @@
-mat-list {
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-mat-list-item {
-    display: flex;
-    align-items: center;
-}
-
-.secondary {
-    font-size: 0.9em;
-    color: gray;
-}
-
-mat-form-field {
+.filter-field {
     width: 100%;
-    margin-bottom: 20px;
-}
- 
-h3 {
-    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-  
-.avatar {
-    background-size: cover;
-    background-position: center;
+.car-list {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.car-item {
+    display: flex;
+    padding: 4px 0;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.car-image {
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    object-fit: cover;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.car-description {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.car-secondary {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
 }
