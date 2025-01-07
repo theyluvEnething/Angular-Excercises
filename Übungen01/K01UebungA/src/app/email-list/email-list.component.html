@@ -1,0 +1,14 @@
+<div>
+    <h3>E-Mail Adressen</h3>
+    <ul>
+        <div *ngIf="emailAdressen.length === 0; else emailList">
+            <p>Keine E-Mail festgelegt</p>
+        </div>
+        <ng-template #emailList>
+            <li *ngFor="let emailAdresse of emailAdressen">
+                <mat-icon class="padding-right" fontIcon="mail"></mat-icon>
+                <a [href]="'mailto: ' + emailAdresse">{{emailAdresse}}</a>
+            </li>
+        </ng-template>
+    </ul>
+</div>

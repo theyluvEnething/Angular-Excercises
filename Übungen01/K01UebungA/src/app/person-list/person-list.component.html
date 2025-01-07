@@ -1,0 +1,10 @@
+<h1>Personenliste</h1>
+
+<div *ngIf="persons.length === 0; else personList">
+    <p>Keine Personen festgelegt</p>
+</div> 
+<ng-template #personList>
+    <div class="personList">
+        <ua-person-item *ngFor="let person2 of persons" [person]="person2"></ua-person-item>
+    </div>
+</ng-template>

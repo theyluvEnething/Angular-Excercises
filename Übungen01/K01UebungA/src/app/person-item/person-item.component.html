@@ -1,0 +1,27 @@
+<mat-card class="person-card" style="font-size: width=100%;">
+  <mat-card-header>
+    <div mat-card-avatar class="avatar" [style.backgroundImage]="'url(' + person.imagelink + ')'"></div>
+    <mat-card-title>{{ person.name }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ person.address.postcodetown }}, {{ person.address.streetnumber }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div [ngClass]="descriptionClass">
+      <img *ngIf="person.imagelink" [src]="person.imagelink" alt="{{ person.name }}" class="profile-image" />
+      <div>
+        <div class="inline-text">
+          <p>Geboren am {{ person.birthdate | date: 'dd.MM.yyyy' }}, derzeit im {{ person.ageInYears }}. Lebensjahr</p>
+          <p>hat eine Größe von {{ person.height | number: '1.2-2' }} Metern,
+            <span *ngIf="person.height > 1.8">ist also groß,</span>
+            ist {{ person.male ? 'ein Mann' : 'eine Frau' }}.
+          </p>
+        </div>
+        <ua-email-list [emailAdressen]="person.emailaddresses"></ua-email-list>
+        <ua-car-list [cars]="person.cars"></ua-car-list>
+      </div>
+      
+    </div>
+  </mat-card-content>
+</mat-card>

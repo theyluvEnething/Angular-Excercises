@@ -1,0 +1,26 @@
+  pizzas: Pizza[] = [
+    new Pizza(
+      'Schinken Pilze',
+      'Knusprige Ofenpizza mit Kochschinken und Steinpilzen',
+      new Date('December 1, 2026'),
+      9.5,
+      [ 'Schinken', 'Pilze', 'Tomaten' ]),
+    new Pizza(
+      'Teufelspizza',
+      'Pikante Pizza mit scharfer Salami',
+      new Date('December 10, 2026'),
+      9,
+      [ 'Scharfe Salami', 'Tomaten' ]),
+    new Pizza(
+      'Capricciosa',
+      'Traditionelle italienische Pizza',
+      new Date('December 20, 2026'),
+      10,
+      [ 'Tomaten' ]),
+    new Pizza(
+      'Marinara',
+      'Napoletanische Pizza',
+      new Date('December 30, 2026'),
+      5.4
+    )
+  ];
