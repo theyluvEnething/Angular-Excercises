@@ -1,6 +1,9 @@
-<div *ngIf="stations && stations.length > 0; else noData">
+<ub-search-term [stationValleys]="stations" (searchTerm)="onSearchTermChange($event)"></ub-search-term>
+
+
+<div *ngIf="stations && searchedStations.length > 0; else noData">
     <ul>
-      <ub-station-item *ngFor="let stationValley of stations" [stationValley]="stationValley"></ub-station-item>
+      <ub-station-item *ngFor="let stationValley of searchedStations" [stationValley]="stationValley"></ub-station-item>
     </ul>
 </div>
 

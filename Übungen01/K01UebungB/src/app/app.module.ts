@@ -8,10 +8,11 @@ import { StationItemComponent } from './station-item/station-item.component';
 
 import { WeatherService } from '../shared/weather-service';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchTermComponent } from './search-term/search-term.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     HttpClientModule,

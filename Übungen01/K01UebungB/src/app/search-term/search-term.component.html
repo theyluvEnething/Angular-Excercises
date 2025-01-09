@@ -1,0 +1,17 @@
+<div class="search-container">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Stationname</mat-label>
+      <input
+        #searchTerm
+        matInput
+        type="text"
+        (keyup)="emitSearchTermChange(searchTerm.value)"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div *ngIf="resultCount !== null" class="result-info">
+      {{ resultCount }} Stationen gefunden
+    </div>
+</div>
+  
