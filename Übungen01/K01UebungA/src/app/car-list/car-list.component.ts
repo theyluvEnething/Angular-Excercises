@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Car } from 'src/shared/car';
 import { CommonModule } from '@angular/common';
 import { NgControl } from '@angular/forms';
@@ -31,9 +31,12 @@ export class CarListComponent implements OnInit{
     this.filteredCars = this.cars;
   }
 
+  
+
   filterCars() {
-    if (this.yearToFilterBy && this.yearToFilterBy) {
-      this.filteredCars = this.cars.filter(car => car.registrationyear === this.yearToFilterBy);
+    var numberYear : number = 0;
+    if (numberYear = Number(this.yearToFilterBy)) {
+      this.filteredCars = this.cars.filter(car => car.registrationyear < numberYear);
     } else {
       this.filteredCars = this.cars;
     }
