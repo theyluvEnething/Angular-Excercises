@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Station } from 'src/shared/station';
 import { WeatherService } from 'src/shared/weather-service';
 import { StationItemComponent } from '../station-item/station-item.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ub-station-list',
@@ -9,7 +10,8 @@ import { StationItemComponent } from '../station-item/station-item.component';
   styleUrls: ['./station-list.component.scss'],
   standalone: true,
   imports: [
-    StationItemComponent
+    StationItemComponent,
+    CommonModule
   ]
 })
 export class StationListComponent implements OnInit {
