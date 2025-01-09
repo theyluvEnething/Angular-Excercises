@@ -57,3 +57,18 @@
   display: flex; 
   flex-wrap: wrap; 
 }
+
+.responsive-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .responsive-layout {
+    flex-direction: row;
+  }
+  .responsive-layout > * {
+    flex: 1 1 auto;
+  }
+}

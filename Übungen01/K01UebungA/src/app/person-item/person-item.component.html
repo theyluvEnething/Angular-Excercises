@@ -18,8 +18,12 @@
             ist {{ person.male ? 'ein Mann' : 'eine Frau' }}.
           </p>
         </div>
-        <ua-email-list [emailAdressen]="person.emailaddresses"></ua-email-list>
-        <ua-car-list [cars]="person.cars"></ua-car-list>
+
+        <div class="responsive-layout">
+          <ua-email-list [emailAdressen]="person.emailaddresses"></ua-email-list>
+          <ua-car-list [cars]="person.cars"></ua-car-list>
+        </div>
+      
       </div>
       
     </div>
