@@ -23,5 +23,4 @@ export class WeatherService {
         map(response => response.rows),
         map(rawStations => rawStations.map((rawStation: any) => StationFactory.fromObject(rawStation))));
   }
-
 }

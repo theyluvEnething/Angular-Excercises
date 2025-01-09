@@ -1,0 +1,10 @@
+<div *ngIf="stations && stations.length > 0; else noData">
+    <ul>
+      <ub-station-item *ngFor="let station of stations" [station]="station"></ub-station-item>
+    </ul>
+</div>
+
+<ng-template #noData>
+    <p>No weather data available.</p>
+</ng-template>
+

@@ -1,0 +1,26 @@
+.station-visualization-container {
+    margin: 16px;
+  
+    mat-card {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+  
+    table {
+      width: 100%;
+    }
+  
+    .diagram-container {
+      margin-top: 16px;
+    }
+  
+    mat-list-item {
+      font-size: 14px;
+      line-height: 1.6;
+  
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+  
