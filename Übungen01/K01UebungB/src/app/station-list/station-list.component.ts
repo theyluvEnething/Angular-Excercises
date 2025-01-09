@@ -3,6 +3,7 @@ import { Station } from 'src/shared/station';
 import { WeatherService } from 'src/shared/weather-service';
 import { StationItemComponent } from '../station-item/station-item.component';
 import { CommonModule } from '@angular/common';
+import { StationValley } from 'src/shared/station-valley';
 
 @Component({
   selector: 'ub-station-list',
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
 })
 export class StationListComponent implements OnInit {
   
-  stations : Station[] = [];
+  stations : StationValley[] = [];
 
   constructor(private weatherService: WeatherService) {}
 
