@@ -4,6 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatList, MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'ub-station-item',
@@ -11,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./station-item.component.scss'],
   standalone: true,
   imports: [
+    FlexLayoutModule,
     CommonModule,
     MatCardModule,
     MatDividerModule,

@@ -1,6 +1,5 @@
 .station-visualization-container {
     margin: 16px;
-  
     mat-card {
       padding: 16px;
       margin-bottom: 16px;
@@ -23,4 +22,26 @@
       }
     }
   }
-  
+
+h1 {
+  font-weight: 950;
+}
+
+a {
+  font-weight: 550;
+}
+
+b {
+  font-weight: 200;
+}
+
+.align-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bigger-gap > * {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
