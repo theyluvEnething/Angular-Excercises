@@ -1,5 +1,6 @@
-<ub-search-term [stationValleys]="stations" (searchTerm)="onSearchTermChange($event)"></ub-search-term>
+<h1>Wetterstationen im Tal</h1>
 
+<ub-search-term [stationValleys]="stations" (searchTerm)="onSearchTermChange($event)"></ub-search-term>
 
 <div *ngIf="stations && searchedStations.length > 0; else noData">
     <ul>
