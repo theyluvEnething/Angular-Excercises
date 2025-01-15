@@ -36,7 +36,7 @@ export class CarListComponent implements OnInit{
   filterCars() {
     var numberYear : number = 0;
     if (numberYear = Number(this.yearToFilterBy)) {
-      this.filteredCars = this.cars.filter(car => car.registrationyear < numberYear);
+      this.filteredCars = this.cars.filter(car => car.registrationyear >= numberYear); // von > zu >= geändert, da wenn ich 1995 eingebe, möchte ich nicht nur die autos von 1996 aufwärts sonder nauch 1995.
     } else {
       this.filteredCars = this.cars;
     }

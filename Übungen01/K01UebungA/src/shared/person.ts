@@ -23,8 +23,8 @@ export class Person {
     return Math.trunc((new Date().valueOf() - this.birthdate.valueOf()) / (365 * 60 * 60 * 24 * 1000));
   }
 
-  carsYoungerThan(registrationyear: number): Array<Car> {
-    return this.cars.filter(
-       value => value.registrationyear > registrationyear);
-  }
+  // carsYoungerThan(registrationyear: number): Array<Car> {
+  //   return this.cars.filter(
+  //      value => value.registrationyear > registrationyear);
+  // } wird nicht gebraucht, gelöst über methode in car-list
 }
