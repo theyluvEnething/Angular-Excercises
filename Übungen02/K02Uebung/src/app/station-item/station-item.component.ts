@@ -14,13 +14,6 @@ interface StationData {
   selector: 'ua-station-item',
   templateUrl: './station-item.component.html',
   styleUrls: ['./station-item.component.scss'],
-  // standalone: true,
-  // imports: [
-  //   CommonModule,
-  //   MeasurementItemComponent,
-  //   MatDividerModule,
-  //   MatListModule,
-  // ] 
 })
 export class StationItemComponent implements OnInit {
   @Input() stationValley !: StationValley;
