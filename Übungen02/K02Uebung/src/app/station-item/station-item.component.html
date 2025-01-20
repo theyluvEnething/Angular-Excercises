@@ -1,0 +1,72 @@
+<div class="station-visualization-container">
+  <mat-card>
+    <h1>{{ stationValley.name }} ({{ stationValley.altitude }} m)</h1>
+    <p fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="4px">
+      <span>Zuletzt aktualisiert: {{ stationValley.lastUpdated.toLocaleTimeString("de-DE", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }) }}, </span>
+      <span>Längengrad: {{ stationValley.longitude }}, Breitengrad: {{ stationValley.latitude }}</span>
+    </p>
+  
+    <div class="big-gap">
+      <div class="align-row">
+      <a>{{ Station.descriptions.t }}</a><b>{{ stationValley.t }}{{ Station.units.t }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.rh }}</a><b>{{ stationValley.rh }}{{ Station.units.rh }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.p }}</a><b>{{ stationValley.p }}{{ Station.units.p }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.n }}</a><b>{{ stationValley.n }}{{ Station.units.n }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.dd }}</a><b>{{ stationValley.dd }}{{ Station.units.dd }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.ff }}</a><b>{{ stationValley.ff }}{{ Station.units.ff }}</b>
+      </div>      
+      <mat-divider></mat-divider>
+        
+      <div class="align-row">
+      <a>{{ Station.descriptions.sd }}</a><b>{{ stationValley.sd }}{{ Station.units.sd }}</b>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="align-row">
+      <a>{{ Station.descriptions.gs }}</a><b>{{ stationValley.gs }}{{ Station.units.gs }}</b>
+      </div>
+    </div>
+
+    <div *ngFor="let measurement of stationValley.measurements">
+        <ua-measurement-item [measurement]="measurement"></ua-measurement-item>
+    </div>
+  </mat-card>
+</div>
+  
+<!--   
+  <ng-template #smallScreen class="small-gap">
+    <div *ngFor="let data of stationData">
+      <mat-list-item>
+        <a>{{ data.description }}</a>
+        <span fxFlex></span>
+        <b>{{ data.value }}{{ data.unit }}</b> 
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+  </ng-template> -->
