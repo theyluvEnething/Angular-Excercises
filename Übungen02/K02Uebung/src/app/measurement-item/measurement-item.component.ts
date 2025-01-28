@@ -9,3 +9,4 @@ import { Measurement } from 'src/shared/measurement';
 export class MeasurementItemComponent {
   @Input() measurement !: Measurement;
 }
+

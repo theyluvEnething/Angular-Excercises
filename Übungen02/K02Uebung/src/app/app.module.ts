@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list'
+import { MatTabsModule } from '@angular/material/tabs';
 
 // Flex Layout Module
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -45,7 +46,8 @@ import { Station } from 'src/shared/station';
     MatToolbarModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule
   ],
   providers: [
     WeatherService
