@@ -1,1 +1,10 @@
-<ua-home></ua-home>
+<div class="center">
+    <mat-tab-group color="blue" [(selectedIndex)]="selectedIndex" (selectedIndexChange)="onTabChange($event)">
+        <mat-tab *ngIf="!isSmallScreen" label="Home"></mat-tab>
+        <mat-tab label="Namen"></mat-tab>
+        <mat-tab label="Temperatur"></mat-tab>
+        <mat-tab label="Niederschlag"></mat-tab>
+        <mat-tab label="Luftdruck"></mat-tab>
+    </mat-tab-group>
+    <router-outlet></router-outlet>
+</div>

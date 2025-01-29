@@ -1,8 +1,15 @@
-<div class="center">
-    <mat-tab-group>
-        <mat-tab label="Namen"> Inhalte für Namen </mat-tab>
-        <mat-tab label="Temperatur"> Inhalte für Temperatur </mat-tab>
-        <mat-tab label="Niederschlag"> Inhalte für Niederschlag </mat-tab>
-        <mat-tab label="Luftdruck"> Inhalte für Luftdruck </mat-tab>
-    </mat-tab-group>
+<div class="container">
+    <h1>
+        Wetterstations-App 🌦️
+    </h1>
+    <p>
+        Diese Webanwendung ermöglicht die Anzeige und Sortierung von Wetterdaten verschiedener Wetterstationen in Südtirol. 
+        Nutzer können sich eine Liste aller verfügbaren Stationen anzeigen lassen, sortiert nach Temperatur, Niederschlag oder Luftdruck. 
+        Durch Auswahl einer Station erhalten sie detaillierte Informationen zu den aktuellen Messwerten.
+        Die App nutzt eine externe API zur Echtzeitabfrage der Wetterdaten und bietet eine intuitive Benutzeroberfläche mit Angular Material. 
+        Ziel ist es, aktuelle Wetterdaten übersichtlich darzustellen und den Nutzern eine schnelle Orientierung zu ermöglichen.
+    </p>
+    <button mat-raised-button color="primary" [routerLink]="['/stations', 'name']">
+        Zu den Wetterstationen
+    </button>    
 </div>

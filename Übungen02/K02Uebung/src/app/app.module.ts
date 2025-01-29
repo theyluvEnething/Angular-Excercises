@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list'
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
 // Flex Layout Module
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,6 +25,7 @@ import { StationItemComponent } from './station-item/station-item.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MeasurementItemComponent } from './measurement-item/measurement-item.component';
 import { Station } from 'src/shared/station';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { Station } from 'src/shared/station';
     LayoutModule,
 
     FlexLayoutModule,
+    HttpClientModule,
     
     MatIconModule,
     MatButtonModule,
@@ -47,7 +50,8 @@ import { Station } from 'src/shared/station';
     MatCardModule,
     MatDividerModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [
     WeatherService
