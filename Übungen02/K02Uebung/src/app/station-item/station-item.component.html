@@ -1,4 +1,4 @@
-<div class="station-visualization-container">
+<div class="station-visualization-container" *ngIf="stationValley">
   <mat-card>
     <h1>{{ stationValley.name }} ({{ stationValley.altitude }} m)</h1>
     <p fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="4px">
@@ -53,20 +53,15 @@
       </div>
     </div>
 
-    <div *ngFor="let measurement of stationValley.measurements">
+    <div fxHide.xs *ngFor="let measurement of measurements">
         <ua-measurement-item [measurement]="measurement"></ua-measurement-item>
     </div>
   </mat-card>
 </div>
-  
-<!--   
-  <ng-template #smallScreen class="small-gap">
-    <div *ngFor="let data of stationData">
-      <mat-list-item>
-        <a>{{ data.description }}</a>
-        <span fxFlex></span>
-        <b>{{ data.value }}{{ data.unit }}</b> 
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </div>
-  </ng-template> -->
+
+<!-- <button>Zurück zu den Stationen</button> -->
+
+<button mat-raised-button color="primary" class="back-button" (click)="backToStations()">
+  <mat-icon>arrow_back</mat-icon>
+  Zurück zu den Stationen
+</button>

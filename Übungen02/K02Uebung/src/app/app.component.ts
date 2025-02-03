@@ -13,7 +13,6 @@ export class AppComponent {
   title = 'K02Uebung';
 
   isSmallScreen = false;
-  selectedIndex = 0;
   sortOrder : string = ""
 
   constructor(
@@ -23,26 +22,8 @@ export class AppComponent {
     this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(result => {
       this.isSmallScreen = result.matches;
     });
-    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
-      this.updateTabIndex();
-    });
   }
-  
-  private updateTabIndex() {
-    const url = this.router.url;
-    if (url.includes('/home')) {
-      this.selectedIndex = 0;
-    } else if (url.includes('/stations/name')) {
-      this.selectedIndex = 1;
-    } else if (url.includes('/stations/temperature')) {
-      this.selectedIndex = 2;
-    } else if (url.includes('/stations/precipitation')) {
-      this.selectedIndex = 3;
-    } else if (url.includes('/stations/airpressure')) {
-      this.selectedIndex = 4;
-    }
-  }
-  
+
   onTabChange(index: number) {
     switch (index) {
       case 0:
@@ -60,6 +41,9 @@ export class AppComponent {
       case 4:
         this.router.navigate(['/stations/airpressure']);
         break;
+      default:
+        break;
     }
+        
   }
 }

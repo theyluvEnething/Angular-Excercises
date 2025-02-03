@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
     { path: 'stations/:sortOrder', component: StationListComponent },
     { path: 'stations/:sortOrder/:code', component: StationItemComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' } // wildcard route
+    { path: '**', redirectTo: '/home',  pathMatch: 'full' } // wildcard route
   ];
 
   @NgModule({

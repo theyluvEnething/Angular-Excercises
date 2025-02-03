@@ -1,3 +1,30 @@
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let station of filteredStations" [value]="station.name">
+    {{ station.name }}
+  </mat-option>
+</mat-autocomplete>
+      
+<input type="text"
+      #searchField
+       placeholder="Pick one"
+       aria-label="Number"
+       matInput 
+       (keyup)="updateAutoComplete(searchField.value)"
+       [matAutocomplete]="auto">
+       
+
+<!-- <mat-form-field appearance="outline">
+  <mat-label>Stationssuche...</mat-label>
+  <input
+    #searchField
+    matInput
+    (keyup)="updateAutoComplete(searchField.value)"
+    [matAutocomplete]="auto"
+  >
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field> -->
+
+
 <div *ngIf="stations; else loading">
   <table mat-table [dataSource]="stations" class="mat-elevation-z8">
     <!-- Name Column -->
