@@ -1,33 +1,10 @@
-<!-- <div *ngIf="stations; else loading">
-    <table mat-table [dataSource]="stations" class="mat-elevation-z8">
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let station">
-          <a [routerLink]="['/station', sortOrder, station.code]">{{ station.name }}</a>
-        </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="temperature">
-        <mat-header-cell *matHeaderCellDef> Temperatur (°C) </mat-header-cell>
-        <mat-cell *matCellDef="let station"> {{ station.t || '-' }} </mat-cell>
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="['name', 'temperature']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['name', 'temperature']"></mat-row>
-    </table>
-  </div>
-  <ng-template #loading>
-    <p>Lade Stationen...</p>
-  </ng-template> -->
-
-
 <div *ngIf="stations; else loading">
   <table mat-table [dataSource]="stations" class="mat-elevation-z8">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let station">
-        <a [routerLink]="['/station', sortOrder, station.code]">{{ station.name }}</a>
+        <a [routerLink]="['/stations', sortOrder, station.code]">{{ station.name }}</a>
       </mat-cell>
     </ng-container>
 

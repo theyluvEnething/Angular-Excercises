@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Station } from 'src/shared/station';
 import { StationValley } from 'src/shared/station-valley';
+import { WeatherService } from 'src/shared/weather-service';
 
 interface StationData {
   description: string;
@@ -16,14 +18,25 @@ interface StationData {
   styleUrls: ['./station-item.component.scss'],
 })
 export class StationItemComponent implements OnInit {
-  @Input() stationValley !: StationValley;
+  stationValley !: StationValley;
   Station = Station; // deklariere Klasse Station als Klasse Station
+  
+  stationCode : string = ""
   
   stationData : StationData[] = [];
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private ws: WeatherService) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.stationCode = params['code'];
+      console.log("StationCode:", this.stationCode);
+    });
+
+    this.ws.getStation(this.stationCode).subscribe(foundStation => {
+      this.stationValley = foundStation;
+    })
+    
     this.stationData = [
       { description: Station.descriptions.t, value: this.stationValley.t, unit: Station.units.t },
       { description: Station.descriptions.rh, value: this.stationValley.rh, unit: Station.units.rh },

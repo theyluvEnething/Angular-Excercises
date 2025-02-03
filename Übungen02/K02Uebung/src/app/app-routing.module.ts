@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
   const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'stations/:sortOrder', component: StationListComponent },
-    { path: 'stations/:sortOrder/x:code', component: StationItemComponent },
+    { path: 'stations/:sortOrder/:code', component: StationItemComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', redirectTo: '/home', pathMatch: 'full' } // wildcard route
   ];

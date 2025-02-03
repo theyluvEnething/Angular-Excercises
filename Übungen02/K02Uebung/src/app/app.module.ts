@@ -26,6 +26,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MeasurementItemComponent } from './measurement-item/measurement-item.component';
 import { Station } from 'src/shared/station';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MeasurementItemComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

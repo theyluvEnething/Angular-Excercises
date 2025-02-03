@@ -13,7 +13,34 @@ export class WeatherService {
 
   private stations!: StationValley[];
 
-  constructor(private http: HttpClient) { }
+constructor(private http: HttpClient) { }
+
+  getStation(stationCode: string): Observable<StationValley> {
+    if (!this.stations) {
+      return this.getAll("name").pipe(
+        map(stations => {
+          this.stations = stations;  // Store stations once retrieved
+          const returnStation = this.stations.find(station => station.code === stationCode);
+          if (returnStation) {
+            return returnStation;
+          } else {
+            throw new Error('Station not found');
+          }
+        })
+      );
+    }
+    
+    const returnStation = this.stations.find(station => station.code === stationCode)
+    return new Observable<StationValley>((observer) => {
+      if (returnStation) {
+        observer.next(returnStation);
+        observer.complete();
+      } else {
+        observer.error(new Error('Station not found'));
+      }
+    });
+  }
+
 
   /**
    * Um den Netzwerkverkehr zu minimieren, werden vom Service die Stationen nur einmal über das
