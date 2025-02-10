@@ -1,1 +1,16 @@
-<p>search-station works!</p>
+<mat-form-field appearance="fill">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected(searchField.value)">
+      <mat-option *ngFor="let station of filteredStations" [value]="station.name">
+        {{ station.name }}
+      </mat-option>
+    </mat-autocomplete>
+    
+    <mat-label>Stationssuche</mat-label>
+  
+    <input matInput
+          #searchField
+          placeholder="Stationsnamen eingeben"
+          [matAutocomplete]="auto"
+          (keyup)="updateAutoComplete(searchField.value)"
+          (keyup.enter)="selectCompletion(searchField.value)">
+  </mat-form-field>

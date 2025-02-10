@@ -19,25 +19,6 @@ export class StationListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private weatherService: WeatherService, private router: Router) {}
 
-  private _filter(value: string): StationValley[] {
-    const filterValue = value.toLowerCase();
-    return this.stations.filter(station =>
-      station.name.toLowerCase().includes(filterValue)
-    );
-  }
-
-  selectCompletion(searchTerm: string) : void {
-    let selectedStations = this._filter(searchTerm)
-    if (selectedStations.length > 0) { // man könnte auch === 1 machen, jedoch, könnte sein das Liste Duplikate enthält, und so werden auch diese abgefangen.
-      let selectedStation = selectedStations[0]
-      this.router.navigate(['/stations', this.sortOrder, selectedStation.code]);
-    }
-  }
-
-  updateAutoComplete(searchTerm: string) : void {
-    this.filteredStations = this._filter(searchTerm)
-  }
-
   ngOnInit() {
     console.log("Loading StationListComponent");
     let OldSortOrder : string = this.sortOrder;

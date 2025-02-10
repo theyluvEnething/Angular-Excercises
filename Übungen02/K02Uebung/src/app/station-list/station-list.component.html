@@ -1,63 +1,6 @@
-<!-- <mat-autocomplete #auto="matAutocomplete">
-  <mat-option *ngFor="let station of filteredStations" [value]="station.name">
-    {{ station.name }}
-  </mat-option>
-</mat-autocomplete> -->
-<!--       
-<input type="text"
-      #searchField
-       placeholder="Pick one"
-       aria-label="Number"
-       matInput 
-       (keyup)="updateAutoComplete(searchField.value)"
-       [matAutocomplete]="auto">
-        -->
-
-<mat-form-field appearance="fill">
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let station of filteredStations" [value]="station.name">
-      {{ station.name }}
-    </mat-option>
-  </mat-autocomplete>
-  
-  <mat-label>Stationssuche</mat-label>
-
-  <input matInput
-        #searchField
-        placeholder="Stationsnamen eingeben"
-        [matAutocomplete]="auto"
-        (keyup)="updateAutoComplete(searchField.value)"
-        (keyup.enter)="selectCompletion(searchField.value)">
-</mat-form-field>
-      
-
-<!-- <div style="display: flex; align-items: center; margin: 1rem 0;">
-  <mat-form-field appearance="outline" style="flex: 1; margin-right: 8px;">
-    <mat-label>Stationssuche...</mat-label>
-    <input
-      type="text"
-      placeholder="Search for a station"
-      matInput
-      [formControl]="stationControl"
-      [matAutocomplete]="auto"
-    />
-  </mat-form-field>
-  <button mat-icon-button aria-label="Search">
-    <mat-icon>search</mat-icon>
-  </button>
-</div> -->
-
-<!-- <mat-form-field appearance="outline">
-  <mat-label>Stationssuche...</mat-label>
-  <input
-    #searchField
-    matInput
-    (keyup)="updateAutoComplete(searchField.value)"
-    [matAutocomplete]="auto"
-  >
-  <mat-icon matSuffix>search</mat-icon>
-</mat-form-field> -->
-
+<!-- <div class="fullWidth">  -->
+<ua-search-station [sortOrder]="sortOrder"></ua-search-station>
+<!-- </div> -->
 
 <div *ngIf="stations; else loading">
   <table mat-table [dataSource]="stations" class="mat-elevation-z8">
