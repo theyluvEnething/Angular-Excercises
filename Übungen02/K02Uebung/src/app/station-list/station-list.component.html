@@ -1,9 +1,9 @@
-<mat-autocomplete #auto="matAutocomplete">
+<!-- <mat-autocomplete #auto="matAutocomplete">
   <mat-option *ngFor="let station of filteredStations" [value]="station.name">
     {{ station.name }}
   </mat-option>
-</mat-autocomplete>
-      
+</mat-autocomplete> -->
+<!--       
 <input type="text"
       #searchField
        placeholder="Pick one"
@@ -11,7 +11,25 @@
        matInput 
        (keyup)="updateAutoComplete(searchField.value)"
        [matAutocomplete]="auto">
-       
+        -->
+
+<mat-form-field appearance="fill">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let station of filteredStations" [value]="station.name">
+      {{ station.name }}
+    </mat-option>
+  </mat-autocomplete>
+  
+  <mat-label>Stationssuche</mat-label>
+
+  <input matInput
+        #searchField
+        placeholder="Stationsnamen eingeben"
+        [matAutocomplete]="auto"
+        (keyup)="updateAutoComplete(searchField.value)"
+        (keyup.enter)="selectCompletion(searchField.value)">
+</mat-form-field>
+      
 
 <!-- <div style="display: flex; align-items: center; margin: 1rem 0;">
   <mat-form-field appearance="outline" style="flex: 1; margin-right: 8px;">

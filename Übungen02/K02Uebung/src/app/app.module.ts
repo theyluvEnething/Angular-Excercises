@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule }       from '@angular/material/input';
+
 
 // Flex Layout Module
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -30,6 +32,7 @@ import { MeasurementItemComponent } from './measurement-item/measurement-item.co
 import { Station } from 'src/shared/station';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { SearchStationComponent } from './search-station/search-station.component';
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     StationListComponent,
     StationItemComponent,
-    MeasurementItemComponent
+    MeasurementItemComponent,
+    SearchStationComponent
   ],
   imports: [
     RouterModule,
@@ -60,7 +64,8 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     WeatherService
