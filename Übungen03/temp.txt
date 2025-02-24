@@ -1,0 +1,49 @@
+
+<mat-divider></mat-divider>
+<button mat-button color="warn" (click)="resetStore()">Resets store to initial state</button>
+
+<mat-divider></mat-divider>
+<button mat-button color="primary" (click)="getAllBooks()">Get all books</button>
+  
+<mat-divider></mat-divider>
+<form (ngSubmit)="getAllBooksSearchTerm(searchTerm.value)">
+    <mat-form-field><input matInput #searchTerm placeholder="Search Term"></mat-form-field>    
+    <button mat-raised-button color="primary" type="submit">Get all books matching search term</button>
+</form>
+  
+<mat-divider></mat-divider>
+<button mat-raised-button color="accent" (click)="createBook(BookFactory.random())">Create a new (random) book</button>
+<button mat-raised-button color="accent" (click)="createBookIsbn()" [disabled]="!lastCreatedBookIsbn">Create a new (random) book with existing ISBN</button>
+  
+<mat-divider></mat-divider>
+<form (ngSubmit)="deleteBook(isbnInput.value)">
+    <mat-form-field>
+    <input matInput #isbnInput placeholder="ISBN">
+    </mat-form-field>
+    <button mat-raised-button color="warn" type="submit">Deletes a book</button>
+</form>
+  
+<mat-divider></mat-divider>
+<button mat-raised-button color="primary" (click)="getBook(isbnInput.value)">Returns a single book by ISBN</button>
+  
+<mat-divider></mat-divider>
+<button mat-raised-button color="accent" (click)="updateBook(BookFactory.random())">Updates an existing book</button>
+
+<mat-divider></mat-divider>
+<button mat-raised-button color="primary" (click)="checkBook(isbnInput.value)">Returns whether ISBN exists or not</button>
+  
+<mat-divider></mat-divider>
+<mat-card *ngIf="response">
+    <mat-card-content>
+        <pre>{{ response | json }}</pre>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-list *ngIf="response?.body?.length">
+    <mat-list-item *ngFor="let book of response.body">
+    <img mat-list-avatar [src]="book.thumbnailUrl" alt="Book Cover">
+    <h4 mat-line>{{ book.title }}</h4>
+    <p mat-line>ISBN: {{ book.isbn }} | Authors: {{ book.authors?.join(', ') }}</p>
+    </mat-list-item>
+</mat-list>
