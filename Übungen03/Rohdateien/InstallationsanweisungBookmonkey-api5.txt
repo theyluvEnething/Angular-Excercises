@@ -1,0 +1,7 @@
+Um das Projekt zu installieren und zu starten, müssen folgende Befehle ausgeführt werden:
+
+cd api5
+npm install --legacy-peer-deps
+npm start
+
+Im Browser kann das Projekt unter http://localhost:3000 gefunden werden.
