@@ -7,15 +7,13 @@ import { Book } from 'src/shared/book';
   providedIn: 'root'
 })
 export class BookStoreService {
-
   private apiUrl = 'http://localhost:3000/books';
   constructor(private http: HttpClient) { }
 
   resetStore(): Observable<HttpResponse<any>> {
-    const url = `${this.apiUrl}/reset`;
-    return this.http.post<any>(url, {}, { observe: 'response' });
+    const url = `${this.apiUrl}/books`;
+    return this.http.delete<any>(url, { observe: 'response' });
   }
-
   createBook(book: Book): Observable<HttpResponse<any>> {
     return this.http.post<any>(this.apiUrl, book, { observe: 'response' });
   }
@@ -35,17 +33,17 @@ export class BookStoreService {
     return this.http.get<any>(url, { observe: 'response' });
   }
 
-  getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.apiUrl);
+  getAllBooks(): Observable<HttpResponse<any>> {
+    return this.http.get<Book[]>(this.apiUrl, { observe: 'response' });
   }
 
-  getAllBooksSearchTerm(searchTerm: string): Observable<Book[]> {
-    const url = `${this.apiUrl}?q=${encodeURIComponent(searchTerm)}`;
-    return this.http.get<Book[]>(url);
+  getAllBooksSearchTerm(searchTerm: string): Observable<HttpResponse<any>> {
+    const url = `${this.apiUrl}/search/${encodeURIComponent(searchTerm)}`;
+    return this.http.get<Book[]>(url, { observe: 'response' });
   }
-
-  getBook(isbn: string): Observable<Book> {
+  
+  getBook(isbn: string): Observable<HttpResponse<any>> {
     const url = `${this.apiUrl}/${isbn}`;
-    return this.http.get<Book>(url);
+    return this.http.get<Book>(url, { observe: 'response' });
   }
 }

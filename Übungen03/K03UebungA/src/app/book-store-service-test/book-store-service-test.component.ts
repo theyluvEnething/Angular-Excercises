@@ -92,13 +92,19 @@ export class BookStoreServiceTestComponent implements OnInit {
 
 
 
-  updateBook(book: Book): void {
-    this.bookStoreService.updateBook(book).subscribe(res => {
-      this.response = res
-    }, err => {
-      console.log(err)
-      this.response = err
-    });
+  updateBook(isbn: string): void {
+    const updatedBook = BookFactory.random();
+    updatedBook.isbn = isbn;
+  
+    this.bookStoreService.updateBook(updatedBook).subscribe(
+      res => {
+        this.response = res;
+      },
+      err => {
+        console.log(err);
+        this.response = err;
+      }
+    );
   }
 
   checkBook(isbn: string): void {
