@@ -1,1 +1,39 @@
-<p>Working</p>
+<header>
+    <h1 class="big-font">Artikelverwaltung</h1>
+</header>
+
+<nav mat-tab-nav-bar mat-stretch-tabs color="accent" backgroundColor="primary">
+    <a #listLink="routerLinkActive"
+        mat-tab-link
+        routerLink="/ItemList"
+        routerLinkActive>
+    Artikelliste
+    </a>
+
+    <a #newLink="routerLinkActive"
+        mat-tab-link
+        routerLink="/Item/new"
+        routerLinkActive>
+    Neuer Artikel
+    </a>
+
+    <a #removeLink="routerLinkActive"
+        mat-tab-link
+        routerLink="/DeleteItems"
+        routerLinkActive>
+    Alle Artikel löschen
+    </a>
+
+
+    <a #refreshLink="routerLinkActive"
+        mat-tab-link
+        routerLink="/RegenerateItems"
+        routerLinkActive>
+    Alle Artikel neu anlegen
+    </a>
+</nav>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
