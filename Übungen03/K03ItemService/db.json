@@ -31,6 +31,22 @@
           "title": "Kupplungsscheibe"
         }
       ]
+    },
+    {
+      "id": "111",
+      "description": "111",
+      "number": 1,
+      "launchDate": "1111-11-11",
+      "prices": {
+        "purchasingPrice": 1,
+        "retailPrice": 2
+      },
+      "images": [
+        {
+          "url": "1.1",
+          "title": "1"
+        }
+      ]
     }
   ]
 }

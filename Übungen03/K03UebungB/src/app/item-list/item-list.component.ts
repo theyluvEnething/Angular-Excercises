@@ -38,7 +38,8 @@ export class ItemListComponent implements OnInit, OnDestroy {
     }
   }
 
-  openEditor(itemId: string): void {
+  openEdit(itemId: string): void {
+    console.log("Navigating to ./items/" + itemId + ".")
     this.router.navigate(['/items', itemId]);
   }
 

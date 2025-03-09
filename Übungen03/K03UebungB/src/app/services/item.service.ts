@@ -44,9 +44,9 @@ export class ItemService {
     );
   }
 
-  modifyItem(item: Item): Promise<HttpResponse<any>> {
+  editItem(id: string, item: Item): Promise<HttpResponse<any>> {
     return firstValueFrom(
-      this.http.put<Item>(`${this.url}/api/items/${item.id}`, item, { observe: 'response' })
+      this.http.put<Item>(`${this.url}/api/items/${id}`, item, { observe: 'response' })
     );
   }
 

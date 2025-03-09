@@ -8,13 +8,13 @@ import { ItemCreateAllComponent } from './item-create-all/item-create-all.compon
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 const routes: Routes = [
-  { path: 'ItemList', component: ItemListComponent },
-  { path: 'Item/new', component: ItemCreateComponent },
-  { path: 'DeleteItems', component: ItemDeleteAllComponent },
-  { path: 'RegenerateItems', component: ItemCreateAllComponent },
-  { path: 'Item/:id', component: ItemDetailComponent },
-  { path: '', redirectTo: 'ItemList', pathMatch: 'full' },
-  { path: '**', redirectTo: 'ItemList' }
+  { path: 'itemList', component: ItemListComponent },
+  { path: 'item/new', component: ItemCreateComponent },
+  { path: 'deleteItems', component: ItemDeleteAllComponent },
+  { path: 'regenerateItems', component: ItemCreateAllComponent },
+  { path: 'items/:id', component: ItemDetailComponent },
+  { path: '', redirectTo: 'itemList', pathMatch: 'full' },
+  { path: '**', redirectTo: 'itemList' }
 ];
 
 @NgModule({

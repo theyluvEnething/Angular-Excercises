@@ -1,33 +1,31 @@
-<div class="delete-container">
-    <header>
-        <button 
-          mat-raised-button color="warn" 
-          class="delete-button-left"
-          (click)="deleteAllArticles()">
-            Remove All Articles
-        </button> 
-    </header>
-  
-    <section *ngIf="error">
-      <h3>Error Details</h3>
-      <ul>
-        <li><strong>Error:</strong> {{ error?.error }}</li>
-        <li><strong>Message:</strong> {{ error?.message }}</li>
-        <li><strong>Name:</strong> {{ error?.name }}</li>
-        <li><strong>OK:</strong> {{ error?.ok }}</li>
-        <li><strong>Headers:</strong> {{ error?.headers }}</li>
-        <li><strong>Status:</strong> {{ error?.status }}</li>
-        <li><strong>Status Text:</strong> {{ error?.statusText }}</li>
-      </ul>
-    </section>
-  
-    <section *ngIf="response">
-      <h3>Response Info</h3>
-      <ul>
-        <li><strong>Status:</strong> {{ response?.status }}</li>
-        <li><strong>Status Text:</strong> {{ response?.statusText }}</li>
-        <li><strong>OK:</strong> {{ response?.ok }}</li>
-      </ul>
-    </section>
-  </div>
-  
+<header>
+      <button 
+        mat-raised-button color="warn" 
+        class="delete-button"
+        (click)="deleteAllArticles()">
+          Remove All Articles
+      </button> 
+</header>
+
+<section *ngIf="error">
+  <h3>Error Details</h3>
+  <ul>
+    <li><strong>Error:</strong> {{ error?.error }}</li>
+    <li><strong>Message:</strong> {{ error?.message }}</li>
+    <li><strong>Name:</strong> {{ error?.name }}</li>
+    <li><strong>OK:</strong> {{ error?.ok }}</li>
+    <li><strong>Headers:</strong> {{ error?.headers }}</li>
+    <li><strong>Status:</strong> {{ error?.status }}</li>
+    <li><strong>Status Text:</strong> {{ error?.statusText }}</li>
+  </ul>
+</section>
+
+<section *ngIf="response">
+  <h3>Response Info</h3>
+  <ul>
+    <li><strong>Status:</strong> {{ response?.status }}</li>
+    <li><strong>Status Text:</strong> {{ response?.statusText }}</li>
+    <li><strong>OK:</strong> {{ response?.ok }}</li>
+  </ul>
+</section>
+

@@ -8,6 +8,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDeleteAllComponent } from './item-delete-all/item-delete-all.component';
 import { ItemCreateComponent } from './item-create/item-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import { LOCALE_ID } from '@angular/core';
 import localeDe from '@angular/common/locales/de';
@@ -46,6 +48,7 @@ registerLocaleData(localeDe);
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent]
