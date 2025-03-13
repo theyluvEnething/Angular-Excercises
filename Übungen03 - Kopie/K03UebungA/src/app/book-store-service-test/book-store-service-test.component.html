@@ -1,0 +1,175 @@
+<div class="big-box">
+
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="warn" class="delete-button-left">DELETE</button>
+        <span>/books</span>
+      </div>
+      <button mat-stroked-button color="secondary" class="delete-button-right" (click)="resetStore()">Resets store to initial state</button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="primary" class="get-button-left">GET</button>
+        <span>/books</span>
+      </div>
+      <button mat-stroked-button color="secondary" class="get-button-right" (click)="getAllBooks()">Get all Books</button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="primary" class="get-button-left">GET</button>
+        <span>/books/search/&#123;searchTerm&#125;</span>
+      </div>
+      <mat-form-field style="margin-top: 1%;">
+        <mat-label>SearchTerm</mat-label>
+        <input matInput #searchTermInput>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="secondary"
+        class="get-button-right"
+        (click)="getAllBooksSearchTerm(searchTermInput.value)"
+      >
+        Get all Books matching Search Term
+      </button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button style="background-color: #4caf50; color: #fff;" class="post-button-left">POST</button>
+        <span>/books</span>
+      </div>
+      <div class="vertical-buttons">
+        <button
+          mat-stroked-button
+          color="secondary"
+          class="post-button-right"
+          (click)="createBook(BookFactory.random())"
+        >
+          Create a new (random) Book
+        </button>
+        <button
+          mat-stroked-button
+          color="secondary"
+          class="post-button-right"
+          (click)="createBookIsbn()"
+        >
+          Create a new (random) Book with existing ISBN
+        </button>
+      </div>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="warn" class="delete-button-left">DELETE</button>
+        <span>/books/&#123;isbn&#125;</span>
+      </div>
+      <mat-form-field style="margin-top: 1%;">
+        <mat-label>ISBN</mat-label>
+        <input matInput #deleteBookInput>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="secondary"
+        class="delete-button-right"
+        (click)="deleteBook(deleteBookInput.value)"
+      >
+        Deletes a Book
+      </button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="primary" class="get-button-left">GET</button>
+        <span>/books/&#123;isbn&#125;</span>
+      </div>
+      <mat-form-field style="margin-top: 1%;">
+        <mat-label>ISBN</mat-label>
+        <input matInput #getBookInput>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="secondary"
+        class="get-button-right"
+        (click)="getBook(getBookInput.value)"
+      >
+        Returns a single Book by ISBN
+      </button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button style="background-color: #59191d; color: #fff;" class="post-button-left">PUT</button>
+        <span>/books/&#123;isbn&#125;</span>
+      </div>
+      <mat-form-field style="margin-top: 1%;">
+        <mat-label>ISBN</mat-label>
+        <input matInput #putBookInput>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="secondary"
+        class="put-button-right"
+        (click)="updateBook(putBookInput.value)"
+      >
+        Updates an existing Book
+      </button>
+    </div>
+  
+    <mat-divider></mat-divider>
+    <div class="action-section">
+      <div class="left-items">
+        <button mat-raised-button color="primary" class="get-button-left">GET</button>
+        <span>/books/&#123;isbn&#125;/check</span>
+      </div>
+      <mat-form-field style="margin-top: 1%;">
+        <mat-label>ISBN</mat-label>
+        <input matInput #checkBookInput>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="secondary"
+        class="get-button-right"
+        (click)="checkBook(checkBookInput.value)"
+      >
+        Returns whether ISBN exists or not
+      </button>
+    </div>
+</div>
+
+<div class="bottom-section">
+    <h2><strong>Response</strong></h2>
+    <p><strong>Status: {{ response?.status }}</strong></p>
+    <p><strong>StatusText:</strong> {{ response?.statusText }}</p>
+    <p><strong>ok:</strong> {{ response?.ok }}</p>
+    <p><strong>body:</strong> {{ response?.body | json }}</p>
+    <div *ngIf="response?.body && (response.body?.length > 0 || response.body?.title)">
+      <ng-container *ngIf="response.body?.length > 0; else singleBook">
+        <h3><strong>Bücher</strong></h3>
+        <div *ngFor="let b of response.body">
+          <p>
+            <strong>Titel:</strong> {{ b.title }}<br>
+            <strong>ISBN:</strong> {{ b.isbn }}<br>
+            <strong>Autoren:</strong> {{ b.authors?.join(', ') }}
+          </p>
+        </div>
+      </ng-container>
+      <ng-template #singleBook>
+        <h3><strong>Book</strong></h3>
+        <p>
+          <strong>Titel:</strong> {{ response.body.title }}<br>
+          <strong>ISBN:</strong> {{ response.body.isbn }}<br>
+          <strong>Autoren:</strong> {{ response.body.authors?.join(', ') }}
+        </p>
+      </ng-template>
+    </div>
+</div>
+  

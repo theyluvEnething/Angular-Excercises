@@ -1,0 +1,46 @@
+<div class="grid-wrapper">
+    <table mat-table [dataSource]="items" class="mat-elevation-z8">
+      <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef> Bild </th>
+        <td mat-cell *matCellDef="let element">
+          <img *ngIf="element.images?.length" [src]="element.images[0]?.url" alt="Produktbild" class="small-img">
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="identifier">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openEdit(element.id)" class="active-link">{{ element.id }}</a>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef> Beschreibung </th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="qty">
+        <th mat-header-cell *matHeaderCellDef> Anzahl </th>
+        <td mat-cell *matCellDef="let element">{{ element.number }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="buyPrice">
+        <th mat-header-cell *matHeaderCellDef> Einkaufspreis </th>
+        <td mat-cell *matCellDef="let element">{{ element.purchasingPrice | currency:'EUR' }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="sellPrice">
+        <th mat-header-cell *matHeaderCellDef> Verkaufspreis </th>
+        <td mat-cell *matCellDef="let element">{{ element.retailPrice | currency:'EUR' }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="launch">
+        <th mat-header-cell *matHeaderCellDef> Einführungsdatum </th>
+        <td mat-cell *matCellDef="let element">{{ element.launchDate | date:'d. MMMM y' }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

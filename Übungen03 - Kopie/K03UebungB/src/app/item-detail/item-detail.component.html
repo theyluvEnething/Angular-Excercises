@@ -1,0 +1,90 @@
+<div class="detail-form-wrapper">
+    <form [formGroup]="formGroup" (ngSubmit)="saveItem()">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>ID</mat-label>
+          <input matInput formControlName="id" [readonly]="!isNew">
+          <mat-error *ngIf="formGroup.get('id')?.hasError('required')">ID muss eingegeben werden</mat-error>
+          <mat-error *ngIf="!formGroup.get('id')?.hasError('required') && formGroup.get('id')?.hasError('pattern')">ID ist ungültig</mat-error>
+          <mat-error *ngIf="!formGroup.get('id')?.hasError('required') && !formGroup.get('id')?.hasError('pattern') && formGroup.get('id')?.hasError('idTaken')">ID existiert bereits</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>Beschreibung*</mat-label>
+          <input matInput formControlName="description">
+          <mat-error *ngIf="formGroup.get('description')?.hasError('required')">Beschreibung muss eingegeben werden</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>Anzahl*</mat-label>
+          <input matInput type="number" formControlName="number">
+          <mat-error *ngIf="formGroup.get('number')?.hasError('required')">Anzahl muss eingegeben werden</mat-error>
+          <mat-error *ngIf="!formGroup.get('number')?.hasError('required') && formGroup.get('number')?.hasError('min')">Anzahl muss größer oder gleich 0 sein</mat-error>
+          <mat-error *ngIf="!formGroup.get('number')?.hasError('required') && !formGroup.get('number')?.hasError('min') && formGroup.get('number')?.hasError('pattern')">Anzahl darf keine Dezimalzahl enthalten</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div formGroupName="prices">
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>Einkaufspreis*</mat-label>
+          <input matInput type="number" formControlName="purchasingPrice">
+          <mat-error *ngIf="formGroup.get('prices')?.get('purchasingPrice')?.hasError('required')">Einkaufspreis muss eingegeben werden</mat-error>
+          <mat-error *ngIf="!formGroup.get('prices')?.get('purchasingPrice')?.hasError('required') && formGroup.get('prices')?.get('purchasingPrice')?.hasError('min')">Einkaufspreis muss größer oder gleich 0 sein</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>Verkaufspreis*</mat-label>
+          <input matInput type="number" formControlName="retailPrice" [errorStateMatcher]="priceErrorMatcher">
+          <mat-error *ngIf="formGroup.get('prices')?.get('retailPrice')?.hasError('required')">Verkaufspreis muss eingegeben werden</mat-error>
+          <mat-error *ngIf="!formGroup.get('prices')?.get('retailPrice')?.hasError('required') && formGroup.get('prices')?.get('retailPrice')?.hasError('min')">Verkaufspreis muss größer oder gleich 0 sein</mat-error>
+          <mat-error *ngIf="!formGroup.get('prices')?.get('retailPrice')?.hasError('required') && !formGroup.get('prices')?.get('retailPrice')?.hasError('min') && formGroup.get('prices')?.get('retailPrice')?.hasError('priceMismatch')">Verkaufspreis muss größer als Einkaufspreis sein</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-full">
+          <mat-label>Einführungsdatum*</mat-label>
+          <input matInput type="date" formControlName="launchDate">
+          <mat-error *ngIf="formGroup.get('launchDate')?.hasError('required')">Einführungsdatum muss eingegeben werden</mat-error>
+          <mat-error *ngIf="!formGroup.get('launchDate')?.hasError('required') && formGroup.get('launchDate')?.hasError('pattern')">Einführungsdatum ist ungültig</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div formArrayName="images" class="form-group">
+        <div *ngIf="images && images.controls && images.controls.length > 0">
+          <div *ngFor="let img of images.controls; let idx = index" class="img-row" [formGroupName]="idx">
+            <mat-form-field appearance="outline" class="input-full">
+              <mat-label>Url*</mat-label>
+              <input matInput formControlName="url">
+              <mat-error *ngIf="img.get('url')?.hasError('required')">URL ist erforderlich</mat-error>
+              <mat-error *ngIf="!img.get('url')?.hasError('required') && img.get('url')?.hasError('duplicate')">URL muss einzigartig sein</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="input-full">
+              <mat-label>Titel</mat-label>
+              <input matInput formControlName="title">
+              <mat-error>Titel ist erforderlich</mat-error>
+            </mat-form-field>
+  
+            <button mat-icon-button color="warn" (click)="removeImage(idx)" [disabled]="(images?.length ?? 0) <= 1">
+                <mat-icon>remove</mat-icon>
+            </button>
+  
+            <button mat-icon-button color="primary" *ngIf="idx === images.length - 1" (click)="addImage()">
+                <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="action-group">
+        <button mat-raised-button color="primary" type="submit">Ändern</button>
+        <button mat-raised-button color="warn" *ngIf="!isNew" (click)="deleteItem()">Löschen</button>
+      </div>
+    </form>
+  </div>
+  

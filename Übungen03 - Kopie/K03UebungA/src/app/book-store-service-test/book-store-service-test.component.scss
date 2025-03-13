@@ -1,0 +1,100 @@
+mat-divider {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.delete-button-left {
+    font-weight: bold;
+}
+
+.get-button-left {
+    font-weight: bold;
+}
+
+.post-button-left {
+    font-weight: bold;
+}
+
+.put-button-left {
+    font-weight: bold;
+}
+
+.delete-button-right {
+    border-color: #FF0000 !important;
+    border-radius: 2px !important;
+    font-size: small !important;
+}
+
+.get-button-right {
+    border-color: #0000FF !important;
+    border-radius: 2px !important;
+    font-size: small !important;
+}
+
+.post-button-right {
+    border-color: #1caa1c !important;
+    border-radius: 2px !important;
+    font-size: small !important;
+}
+
+.put-button-right {
+    border-color: #59191d !important;
+    border-radius: 2px !important;
+    font-size: small !important;
+}
+
+.action-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.left-items {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vertical-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.big-box {
+    border: 1px solid #ccc; 
+    background-color: #f9f9f9;
+    padding: 16px;
+    margin: 16px 0;          
+}
+
+.delete-button-left,
+.get-button-left,
+.post-button-left,
+.put-button-left {
+    width: 90px;
+}
+
+
+.delete-button-right,
+.get-button-right,
+.post-button-right,
+.put-button-right {
+    width: 300px;
+}
+
+
+.bottom-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+}
+  
+.bottom-section .hint {
+    background-color: #fcd9d1;
+    padding: 8px;
+    margin: 1rem 0;
+    font-weight: bold;
+}

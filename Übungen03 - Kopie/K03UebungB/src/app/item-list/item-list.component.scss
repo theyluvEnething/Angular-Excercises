@@ -1,0 +1,31 @@
+.grid-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .small-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .active-link {
+    color: #3f51b5;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .active-link:hover {
+    color: #283593;
+  }
+  
+  mat-tab-group {
+    margin-bottom: 16px;
+  }
+  
+  mat-tab-label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
