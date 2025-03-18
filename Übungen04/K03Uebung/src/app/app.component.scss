@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #3f51b5;
+    padding: 0.5rem;
+    color: #fff;
+  }
+  
+  .menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .navbar-title {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+  
+  .dropdown {
+    list-style-type: none;
+    margin-left: auto;
+    display: none;
+    background-color: #fff;
+    color: #333;
+    padding: 0;
+  }
+  
+  .dropdown li {
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .dropdown.open {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 3.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
