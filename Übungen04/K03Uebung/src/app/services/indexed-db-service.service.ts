@@ -103,7 +103,7 @@ export class IndexedDbService extends Dexie {
     return foundTheme || null;
   }
 
-  async deleteNoteById(id: string) {
+  async deleteNote(id: string) {
     try {
       await this.notes.delete(id);
     } catch (error) {

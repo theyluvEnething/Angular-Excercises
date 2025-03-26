@@ -1,0 +1,13 @@
+.action-section {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 0;
+
+
+    .button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+

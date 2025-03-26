@@ -1,0 +1,12 @@
+<mat-list>
+    <mat-list-item *ngFor="let theme of themes" (click)="themeClicked(theme)">
+        <span matListItemTitle> {{theme.description}}</span>
+        <hr>
+    </mat-list-item>
+</mat-list>
+
+<div class="action-section">
+    <button mat-fab color="primary" class="button" (click)="onAddClick()">
+      <mat-icon>add</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+    {{ isEditMode ? 'Themenänderung' : 'Thema hinzufügen' }}
+  </h2>
+  
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field class="example-form-field">
+      <mat-label>Beschreibung*</mat-label>
+      <input matInput type="text" [(ngModel)]="description">
+      <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="onSubmit()">
+      {{ isEditMode ? 'Ändern' : 'Hinzufügen' }}
+    </button>
+    <button mat-raised-button mat-dialog-close>
+      {{ isEditMode ? 'Zurück' : 'Abbrechen' }}
+    </button>
+    <!-- Only show delete button in edit mode -->
+    <button *ngIf="isEditMode" mat-icon-button (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-dialog-actions>
+  

@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoteManagamentComponent } from './note-managament/note-managament.component';
-import { NoteSortComponent } from './note-sort/note-sort.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,13 +24,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { NotesDetailComponent } from './notes-detail/notes-detail.component';
+import { ThemesComponent } from './themes/themes.component';
+import { ThemeDialogComponent } from './theme-dialog/theme-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoteManagamentComponent,
-    NoteSortComponent,
-    HomeComponent
+    HomeComponent,
+    NavigationComponent,
+    NotesDetailComponent,
+    ThemesComponent,
+    ThemeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ import { HomeComponent } from './home/home.component';
     MatSortModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

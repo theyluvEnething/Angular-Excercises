@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoteSortComponent } from './note-sort.component';
+import { ThemesComponent } from './themes.component';
 
-describe('NoteSortComponent', () => {
-  let component: NoteSortComponent;
-  let fixture: ComponentFixture<NoteSortComponent>;
+describe('ThemesComponent', () => {
+  let component: ThemesComponent;
+  let fixture: ComponentFixture<ThemesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NoteSortComponent]
+      declarations: [ThemesComponent]
     });
-    fixture = TestBed.createComponent(NoteSortComponent);
+    fixture = TestBed.createComponent(ThemesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
