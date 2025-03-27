@@ -14,10 +14,10 @@ export class ThemeDialogComponent implements OnInit {
   description: string = '';
   isEditMode: boolean = false;
   theme!: Theme; // für edit mode
-  private _snackBar = inject(MatSnackBar);
+  private snackBar = inject(MatSnackBar);
 
   constructor(
-    private DB: IndexedDbService,
+    private Db: IndexedDbService,
     private dialogRef: MatDialogRef<ThemeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { theme?: Theme }
   ) {}
@@ -32,7 +32,7 @@ export class ThemeDialogComponent implements OnInit {
 
   async onSubmit() {
     if (!this.description) {
-      this._snackBar.open('Bitte Beschreibung eingeben', 'OK', { duration: 3000 });
+      this.snackBar.open('Bitte Beschreibung eingeben', 'OK', { duration: 3000 });
       return;
     }
     if (this.isEditMode) {
@@ -45,8 +45,8 @@ export class ThemeDialogComponent implements OnInit {
   async addTheme() {
     try {
       const newTheme = new Theme(uuidv4(), this.description);
-      const createdTheme = await this.DB.addTheme(newTheme);
-      this._snackBar.open('Thema erfolgreich erstellt', 'OK', { duration: 3000 });
+      const createdTheme = await this.Db.addTheme(newTheme);
+      this.snackBar.open('Thema erfolgreich erstellt', 'OK', { duration: 3000 });
       this.dialogRef.close(createdTheme);
     } catch (error) {
       console.error('Error adding theme:', error);
@@ -58,15 +58,14 @@ export class ThemeDialogComponent implements OnInit {
     
     try {
       if (this.theme.description === this.description) {
-        this._snackBar.open('Thema wurde nicht verändert', 'Error', { duration: 3000 });
+        this.snackBar.open('Thema wurde nicht verändert', 'Error', { duration: 3000 });
         return
       }
 
-      const existingTheme = await this.DB.getThemeByDescription(this.theme.description);
+      const existingTheme = await this.Db.getThemeByDescription(this.theme.description);
       this.theme.description = this.description;
-      console.log("this.theme: ", this.theme.id, " - ", this.theme.description)
-      await this.DB.updateTheme(this.theme);
-      this._snackBar.open('Thema erfolgreich aktualisiert', 'OK', { duration: 3000 });
+      await this.Db.updateTheme(this.theme);
+      this.snackBar.open('Thema erfolgreich aktualisiert', 'OK', { duration: 3000 });
       this.dialogRef.close();
     } catch (error) {
       console.error('Error updating theme:', error);
@@ -74,16 +73,14 @@ export class ThemeDialogComponent implements OnInit {
   }
 
   async onDelete() {
-    if (!this.isEditMode) {
-      return;
-    }
+    if (!this.isEditMode) return;
+    
     try {
-      await this.DB.deleteTheme(this.theme);
-      this._snackBar.open('Thema erfolgreich gelöscht', 'OK', { duration: 3000 });
+      await this.Db.deleteTheme(this.theme);
+      this.snackBar.open('Thema erfolgreich gelöscht', 'OK', { duration: 3000 });
       this.dialogRef.close();
     } catch (error) {
-      console.error('Fehler beim Löschen des Themas:', error);
-      this._snackBar.open('Das Thema wird noch benutzt', 'OK');
+      this.snackBar.open('Das Thema wird noch benutzt', 'OK');
     }
   }
 }

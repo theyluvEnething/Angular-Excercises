@@ -2,7 +2,7 @@
     <div class="filter-wrapper">
       <mat-chip-listbox aria-label="Choose Sorting Option">
         <div class="align-items"> 
-          <p class="adjust-height-p">Sortieren nach: </p>
+          <p *ngIf="isPC" class="adjust-height-p">Sortieren nach: </p>
           <mat-chip-option *ngFor="let filter of filters" [selected]="filter == selectedFilter" (selectionChange)="filterNotes($event, filter)">
             {{ filter.name }}
           </mat-chip-option>
@@ -25,7 +25,7 @@
     
   
     <div class="action-section">
-      <button mat-fab color="primary" class="button" routerLink="/add">
+      <button mat-fab color="primary" class="button" (click)="addNote()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
